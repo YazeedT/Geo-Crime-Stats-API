@@ -10,6 +10,9 @@ OPTIONAL: Replace `DISTANCE_IN_MILES` with the diameter of the search area from 
 
 ## JSON Response Structure
 The JSON returned by the API endpoint has the following structure:
+
+- `distance`: An integer indicating the data's area radius, measured in miles.
+  
 - `population_count`: An integer representing the total population of a one-mile radius from the center point of the provided ZIP code.
 
 - `incidents_count`: An integer indicating the total number of reported crime incidents in the specified area over the last 6 months.
