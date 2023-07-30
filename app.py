@@ -17,7 +17,7 @@ def get_crime_data():
     # API endpoints and key
     OPENSTREET_API_ENDPOINT     = f'http://nominatim.openstreetmap.org/search?format=json&postalcode={ZIP_CODE}&country=us'
     CRIMEOMETER_API_ENDPOINT    = 'https://api.crimeometer.com/v2/incidents/stats'
-    CRIMEOMETER_API_KEY         = 'mAeNM6nfZj9lFn3rD3eqc9MeohmAGWDE6FYxwgbn'
+    CRIMEOMETER_API_KEY         = 'INSERT YOUR KEY HERE'
 
     # Error handling for missing ZIP code
     if not ZIP_CODE:
