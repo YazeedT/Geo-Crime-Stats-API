@@ -17,6 +17,8 @@ The JSON returned by the API endpoint has the following structure:
 
 - `distance`: An integer indicating the data's area radius, measured in miles.
   
+- `time`: An integer for the length of the period in days.
+  
 - `population_count`: An integer representing the total population of the encompassed area.
 
 - `incidents_count`: An integer indicating the total number of reported crime incidents in the specified area over the last 6 months.
