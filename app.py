@@ -41,7 +41,7 @@ def get_crime_data():
     datetime_end = datetime.now()
     datetime_ini = datetime_end - timedelta(days=180)
 
-    # Use the coordinates and time to get the CSI
+    # Use the coordinates and time to get the crime data
     headers = {
         'Content-Type': 'application/json',
         'x-api-key': CRIMEOMETER_API_KEY
