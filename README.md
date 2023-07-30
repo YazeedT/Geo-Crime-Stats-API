@@ -1,6 +1,6 @@
 # Geo Crime Stats API
 
-The Geo Crime Stats API provides comprehensive crime statistics for any given ZIP code in the United States. It does this by utilizing the `nominatim.openstreetmap.org` and `crimeometer.com` APIs to fetch geographical coordinates and crime data respectively. The reported crime data is for a 6 month period.
+The Geo Crime Stats API provides comprehensive crime statistics for any given ZIP code in the United States. It does this by utilizing the `nominatim.openstreetmap.org` and `crimeometer.com` APIs to fetch geographical coordinates and crime data respectively.
 
 NOTE: This functionality is available for over 700 urban areas, predominantly encompassing larger cities. An error will be returned in the absence of any available data.
 
