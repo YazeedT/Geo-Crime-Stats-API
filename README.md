@@ -6,10 +6,11 @@ NOTE: This functionality is available for over 700 urban areas, predominantly en
 
 ## API Endpoint
 
-- **Endpoint:** `URL/get-crime-data?zipcode=YOUR_ZIP_CODE&distance=DISTANCE_IN_MILES`
+- **Endpoint:** `URL/get-crime-data?zipcode=YOUR_ZIP_CODE&distance=DISTANCE_IN_MILES&time=TIME_IN_DAYS`
 
   - REQUIRED: Replace `YOUR_ZIP_CODE` with the actual ZIP code for which you want to get the crime data.
   - OPTIONAL: Replace `DISTANCE_IN_MILES` with the diameter of the search area from the center of the ZIP code. Defaults to 1 mile.
+  - OPTIONAL: Replace `TIME_IN_DAYS` with the length of time period from today that you want to be included in the response. Defaults to 180 days.
 
 ## JSON Response Structure
 The JSON returned by the API endpoint has the following structure:
