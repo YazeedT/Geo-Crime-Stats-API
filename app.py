@@ -8,10 +8,11 @@ app = Flask(__name__)
 def get_crime_data():
     # Extract the value of 'zipcode' from the URL
     ZIP_CODE                    = request.args.get('zipcode', type = str)
-    
-    # Extract the value of 'distance' from the URL, convert it to meters for the API. Defaults to 1 mile.
-    DISTANCE_MILES              = request.args.get('distance', default = 1, type = int)
+    # Extract the value of 'distance' from the URL. Defaults to 1 mile.
+    DISTANCE_MILES              = request.args.get('distance', default = 1, type = float)
     DISTANCE                    = str(DISTANCE_MILES) + "mi"
+    # Extract the value of 'days' from the URL. Defaults to 180 days.
+    DAYS                        = request.args.get('time', default = 180, type = int)
     
     # API endpoints and key
     OPENSTREET_API_ENDPOINT     = f'http://nominatim.openstreetmap.org/search?format=json&postalcode={ZIP_CODE}&country=us'
@@ -39,7 +40,7 @@ def get_crime_data():
     
     # Get the time now and 6 months ago
     datetime_end = datetime.now()
-    datetime_ini = datetime_end - timedelta(days=180)
+    datetime_ini = datetime_end - timedelta(days=DAYS)
 
     # Use the coordinates and time to get the crime data
     headers = {
@@ -64,8 +65,9 @@ def get_crime_data():
     if csi == 0 and count == 0:
         return jsonify(error='There is no data for this ZIP code.'), 404
 
-    # Add distance to results
+    # Add distance and time to results
     results['distance'] = DISTANCE_MILES
+    results['time'] = DAYS
     return results
 
 if __name__ == '__main__':
