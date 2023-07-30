@@ -10,8 +10,8 @@ NOTE: This functionality is available for over 700 urban areas, predominantly en
 
   - REQUIRED: Replace `YOUR_ZIP_CODE` with the actual ZIP code for which you want to get the crime data.
   - OPTIONAL: Replace `DISTANCE_IN_MILES` with the diameter of the search area from the center of the ZIP code. Defaults to 1 mile.
-  - OPTIONAL: Replace `TIME_IN_DAYS` with the length of time period from today that you want to be included in the response. Defaults to 180 days.
-
+  - OPTIONAL: Replace `TIME_IN_DAYS` with the desired time period from today to be included in the response. Defaults to 180 days.
+    
 ## JSON Response Structure
 The JSON returned by the API endpoint has the following structure:
 
