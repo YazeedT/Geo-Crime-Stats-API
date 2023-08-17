@@ -1,21 +1,39 @@
 # Geo Crime Stats API
 
-The Geo Crime Stats API provides comprehensive crime statistics for any given ZIP code in the United States. It does this by utilizing the `nominatim.openstreetmap.org` and `crimeometer.com` APIs to fetch geographical coordinates and crime data respectively. The reported crime data is for a 6 month period.
+The Geo Crime Stats API provides comprehensive crime statistics for any given ZIP code in the United States. It does this by utilizing the nominatim.openstreetmap.org and crimeometer.com APIs to fetch geographical coordinates and crime data respectively.
 
-NOTE: This functionality is available for over 700 urban areas, predominantly encompassing larger cities. An error will be returned in the absence of any available data.
+_NOTE: This functionality is available for over 700 urban areas, predominantly encompassing larger cities. An error will be returned in the absence of any available data._
 
 ## API Endpoint
 
-- **Endpoint:** `URL/get-csi?zipcode=YOUR_ZIP_CODE&distance=DISTANCE_IN_MILES`
-REQUIRED: Replace `YOUR_ZIP_CODE` with the actual ZIP code for which you want to get the crime data.
-OPTIONAL: Replace `DISTANCE_IN_MILES` with the diameter of the search area from the center of the ZIP code. Defaults to 1 mile.
+**Endpoint**: `https://crime-stats-api.uk.r.appspot.com/get-crime-data?zipcode=YOUR_ZIP_CODE&distance=DISTANCE_IN_MILES&time=TIME_IN_DAYS`
 
+- **REQUIRED**: Replace `YOUR_ZIP_CODE` with the actual ZIP code for which you want to get the crime data.
+- **OPTIONAL**: Replace `DISTANCE_IN_MILES` with the diameter of the search area from the center of the ZIP code. Defaults to 1 mile.
+- **OPTIONAL**: Replace `TIME_IN_DAYS` with the desired time period from today to be included in the response. Defaults to 180 days.
+
+## Requesting Data
+
+You can request data from this microservice using an HTTP GET request to the API endpoint mentioned above. Here's an example of how you could do this using Python:
+
+```python
+import requests
+
+url = 'https://crime-stats-api.uk.r.appspot.com/get-crime-data?zipcode=10001&distance=2&time=30'
+response = requests.get(url)
+data = response.json()
+```
+In this example, we're fetching crime data for the ZIP code 10001, with a distance of 2 miles and time of 30 days.
+
+    
 ## JSON Response Structure
 The JSON returned by the API endpoint has the following structure:
 
 - `distance`: An integer indicating the data's area radius, measured in miles.
   
-- `population_count`: An integer representing the total population of a one-mile radius from the center point of the provided ZIP code.
+- `time`: An integer for the length of the period in days.
+  
+- `population_count`: An integer representing the total population of the encompassed area.
 
 - `incidents_count`: An integer indicating the total number of reported crime incidents in the specified area over the last 6 months.
 
