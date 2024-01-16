@@ -22,7 +22,7 @@ You can request data from this microservice using an HTTP GET request to the API
 ```python
 import requests
 
-url = 'https://crime-stats-api.uk.r.appspot.com/get-crime-data?zipcode=10001&distance=2&time=30'
+url = 'http://localhost:5000/get-crime-data?zipcode=10001&distance=2&time=30'
 response = requests.get(url)
 data = response.json()
 ```
